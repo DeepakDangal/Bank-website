@@ -182,6 +182,9 @@
         <div class="search-bar">
             <input type="text" placeholder="Search...">
             <button>Search</button>
+            <button onclick="signOut()">Sign Out</button>
+           
+
         </div>
     </header>
 
@@ -194,37 +197,26 @@
     </nav>
 
     <main>
-
-    <?php
-
-    
-
-    if($_POST['transection-type']=='deposit'){
-
-
-    }
-    
-    
-    ?>
         
 
-        <div id="transaction-form">
-            <h2>Transaction Form</h2>
-            <p class="balance" id="balance-display">Current Balance: $1000.00</p>
+    <div id="transaction-form">
+    <h2>Transaction Form</h2>
+    <p class="balance" id="balance-display">Current Balance: $1000.00</p>
 
-            <form id="bank-transaction-form">
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" name="amount" required>
+    <form id="bank-transaction-form" onsubmit="submitTransaction(); return false;">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required>
 
-                <label for="transaction-type">Transaction Type:</label>
-                <select id="transaction-type" name="transaction-type" required>
-                    <option value="deposit">Deposit</option>
-                    <option value="withdrawal">Withdrawal</option>
-                </select>
+        <label for="transaction-type">Transaction Type:</label>
+        <select id="transaction-type" name="transaction-type" required>
+            <option value="deposit">Deposit</option>
+            <option value="withdrawal">Withdrawal</option>
+        </select>
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
     </main>
 
     <footer>
@@ -294,6 +286,13 @@
             balanceDisplay.textContent = `Current Balance: $${currentBalance.toFixed(2)}`;
 
             // Additional logic to send the transaction data to the server should be implemented here
+            function signOut() {
+            // Simulate signing out logic (replace with actual sign-out logic)
+            alert('Signing out...'); // You can remove this line in a real implementation
+
+            // Redirect to the home page (replace '/home' with the actual home page URL)
+            window.location.href = 'page.php';
+        }
         }
     </script>
 </body>
